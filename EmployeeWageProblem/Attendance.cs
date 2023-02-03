@@ -10,7 +10,7 @@ namespace EmployeeWageProblem
     {
         public void CheckAttendance()
         {
-            int present = 1, absent = 2, empHrs = 0, dailyEmpWage; ;
+            int empHrs = 0, dailyEmpWage; 
             const int wagePerHour = 20;
 
             Random random = new Random();
@@ -23,11 +23,11 @@ namespace EmployeeWageProblem
                     break;
                 case 2:
                     empHrs = 4;
-                    Console.WriteLine("Employee is absent");
+                    Console.WriteLine("Employee is Present Part-Time");
                     break;
                 case 3:
-                    empHrs = 4;
-                    Console.WriteLine("Employee is Present Half-Time");
+                    empHrs = 0;
+                    Console.WriteLine("Employee is absent");
                     break;
             }
             dailyEmpWage = (wagePerHour * empHrs);

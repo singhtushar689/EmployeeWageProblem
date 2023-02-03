@@ -12,9 +12,9 @@ namespace EmployeeWageProblem
         {
             int empHrs = 0, dailyEmpWage; 
             const int wagePerHour = 20; const int maxDaysInMonth = 20;
-            int totalWage = 0;int day = 0;
+            int totalWage = 0;int day = 0;const int maxHrs = 100; int hrCount = 0;
             
-           for(int i = 1; i <= maxDaysInMonth; i++)
+           while(day < maxDaysInMonth && hrCount <= maxHrs)
            {
                 Random random = new Random();
                 int checkOption = random.Next(1, 4);
@@ -34,14 +34,14 @@ namespace EmployeeWageProblem
                         break;
                 }
                 day++;
+                hrCount = empHrs + hrCount;
                 Console.WriteLine("Day" + day);
+                Console.WriteLine("Total Hours are" + hrCount);       
                 dailyEmpWage = (wagePerHour * empHrs);
                 Console.WriteLine("DailyWage is:" + dailyEmpWage);
                 totalWage += dailyEmpWage;
                 Console.WriteLine("Total Emp Wage is:" + totalWage);
-           }
-          
-           
+           }  
         }
     }
 }

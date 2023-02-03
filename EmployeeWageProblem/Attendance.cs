@@ -15,7 +15,7 @@ namespace EmployeeWageProblem
 
             Random random = new Random();
             int checkOption = random.Next(1, 4);
-            switch (checkOption)
+            switch (checkOption)                      //using Switch Statement
             {
                 case 1:
                     empHrs = 8;

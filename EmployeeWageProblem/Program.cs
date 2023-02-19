@@ -10,9 +10,13 @@ namespace EmployeeWageProblem
     {
         static void Main(string[] args)
         {
-            Attendance attendance = new Attendance();
-            attendance.CheckAttendance("Amazon",40,30,150);
-            attendance.CheckAttendance("Reliance", 40, 20, 100);
+            Attendance amazon = new Attendance("Amazon", 40, 30, 150);
+            amazon.CheckAttendance();
+            Console.WriteLine(amazon.ToString());
+
+            Attendance reliance = new Attendance("Reliance", 40, 20, 100);
+            reliance.CheckAttendance();
+            Console.WriteLine(reliance.ToString());
             Console.ReadLine();
         }
     }

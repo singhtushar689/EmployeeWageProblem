@@ -11,7 +11,19 @@ namespace EmployeeWageProblem
         public const int present = 1;
         public const int absent = 2;
 
-        public int CheckAttendance(string company, int empRatePerHour, int maxDaysInMonth, int maxHrs)
+        private string company;
+        private int empRatePerHour;
+        private int maxDaysInMonth;
+        private int maxHrs;
+        private int totalEmpWage;
+        public Attendance(string company, int empRatePerHour, int maxDaysInMonth, int maxHrs)
+        {
+            this.company = company;
+            this.empRatePerHour = empRatePerHour;
+            this.maxDaysInMonth = maxDaysInMonth;
+            this.maxHrs = maxHrs;
+        }
+        public void CheckAttendance()
         {
             int empHrs = 0;
             int totalEmpHrs = 0;
@@ -40,9 +52,11 @@ namespace EmployeeWageProblem
                 Console.WriteLine("Day: " + totalWorkingDays + " Emp Hours :" + empHrs);
             }
             int totalEmpWage = totalEmpHrs * empRatePerHour;
-
-            Console.WriteLine("total Wage For:"+company + totalEmpWage);
-            return totalEmpWage;
+            Console.WriteLine("Total Wage For:" + this.company + "is " + totalEmpWage);
+        }
+        public string ToString()
+        {
+            return ("Total EmpWage for " + this.company + " is" + totalEmpWage);
         }
     }
 }

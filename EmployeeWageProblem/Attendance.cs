@@ -8,14 +8,17 @@ namespace EmployeeWageProblem
 {
     public class Attendance
     {
-        public void CheckAttendance()
+        public const int present = 1;
+        public const int absent = 2;
+
+        public int CheckAttendance(string company, int empRatePerHour, int maxDaysInMonth, int maxHrs)
         {
-            int empHrs = 0, dailyEmpWage; 
-            const int wagePerHour = 20; const int maxDaysInMonth = 20;
-            int totalWage = 0;int day = 0;const int maxHrs = 100; int hrCount = 0;
-            
-           while(day < maxDaysInMonth && hrCount <= maxHrs)
-           {
+            int empHrs = 0;
+            int totalEmpHrs = 0;
+            int totalWorkingDays = 0;
+
+            while (totalEmpHrs < maxHrs && totalWorkingDays <= maxDaysInMonth)
+            {
                 Random random = new Random();
                 int checkOption = random.Next(1, 4);
                 switch (checkOption)
@@ -33,15 +36,13 @@ namespace EmployeeWageProblem
                         Console.WriteLine("Employee is absent");
                         break;
                 }
-                day++;
-                hrCount = empHrs + hrCount;
-                Console.WriteLine("Day" + day);
-                Console.WriteLine("Total Hours are" + hrCount);       
-                dailyEmpWage = (wagePerHour * empHrs);
-                Console.WriteLine("DailyWage is:" + dailyEmpWage);
-                totalWage += dailyEmpWage;
-                Console.WriteLine("Total Emp Wage is:" + totalWage);
-           }  
+                totalEmpHrs += empHrs;
+                Console.WriteLine("Day: " + totalWorkingDays + " Emp Hours :" + empHrs);
+            }
+            int totalEmpWage = totalEmpHrs * empRatePerHour;
+
+            Console.WriteLine("total Wage For:"+company + totalEmpWage);
+            return totalEmpWage;
         }
     }
 }

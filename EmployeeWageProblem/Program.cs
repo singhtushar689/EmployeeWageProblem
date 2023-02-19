@@ -11,7 +11,8 @@ namespace EmployeeWageProblem
         static void Main(string[] args)
         {
             Attendance attendance = new Attendance();
-            attendance.CheckAttendance();
+            attendance.CheckAttendance("Amazon",40,30,150);
+            attendance.CheckAttendance("Reliance", 40, 20, 100);
             Console.ReadLine();
         }
     }
